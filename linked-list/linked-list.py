@@ -34,7 +34,31 @@ class LinkedList:
             else:
                 current_node = current_node.get_next() 
         return "Not found"
-    
+
+    def delete(self, val):
+        current_node = self.head
+        previous = None
+        
+        while current_node is not None:
+            if current_node.get_data() == val:
+                break
+            previous = current_node
+            current_node = current_node.get_next()
+        
+        if current_node is None:
+            raise ValueError(f"{val} not in list")
+        
+        if previous is None:
+            self.head = current_node.next
+            count -= 1
+        else:
+            previous.set_next(current_node.get_nextI())
+            count -= 1
+    def count(self):
+        return self.count
+    def isEmpty(self):
+        return self.head == None
+
 if __name__ == "__main__":
     L1 = LinkedList()
     L1.insert("balaji")
